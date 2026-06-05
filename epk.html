@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dehorn — Press Kit / EPK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Oswald:wght@400;600;700&family=Inter:wght@300;400;500&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#1fd0c4;--teal-dim:#0d6e6a;
+  --off-white:#c8c2b8;--dim:#a09890;--bg:#080a0a;--bg2:#0a0f0f;--bg3:#0f1515;
+  --border:rgba(31,208,196,0.07);--border-teal:rgba(31,208,196,0.2);
+  --mono:'Share Tech Mono',monospace;--display:'Oswald',sans-serif;
+  --cond:'Barlow Condensed',sans-serif;--body:'Inter',sans-serif;
+}
+body{background:var(--bg);color:var(--off-white);font-family:var(--body);font-weight:300;line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(to bottom,transparent,transparent 2px,rgba(0,0,0,0.1) 2px,rgba(0,0,0,0.1) 4px);pointer-events:none;z-index:1000;opacity:0.3}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,10,10,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:56px}
+.nav-logo img{height:24px;width:auto}
+.nav-back{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--teal)}
+.nav-tag{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);border:1px solid var(--border-teal);padding:0.28rem 0.7rem;opacity:0.8}
+
+/* HERO — side by side split */
+.epk-hero{display:grid;grid-template-columns:1fr 1fr;min-height:540px;border-bottom:1px solid var(--border);margin-top:56px}
+.epk-hero-text{display:flex;flex-direction:column;justify-content:center;padding:4rem 3.5rem;background:var(--bg)}
+.epk-hero-img-wrap{position:relative;overflow:hidden;min-height:400px}
+.epk-hero-img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:brightness(0.78) saturate(0.85);display:block}
+.epk-eyebrow{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;opacity:0.8}
+.epk-name{font-family:var(--display);font-size:clamp(3.5rem,7vw,6.5rem);line-height:0.88;font-weight:700;letter-spacing:0.04em;color:var(--off-white);margin-bottom:0.75rem}
+.epk-tagline{font-family:var(--cond);font-size:1.1rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:2rem}
+.epk-meta{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;color:var(--dim);opacity:0.7;line-height:1.9}
+.epk-meta span{color:var(--teal);opacity:0.9}
+
+/* PULL QUOTE */
+.pull-quote-wrap{background:var(--bg2);border-bottom:1px solid var(--border);padding:3.5rem 2.5rem}
+.pull-quote-inner{max-width:780px;margin:0 auto;text-align:center}
+.pull-quote{font-family:var(--display);font-size:clamp(1.2rem,2.5vw,1.9rem);font-weight:400;line-height:1.4;color:var(--teal);letter-spacing:0.02em;margin-bottom:1rem}
+.pull-quote-source{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);opacity:0.7}
+.pull-quote-source a{color:var(--dim);text-decoration:none;transition:color 0.2s}
+.pull-quote-source a:hover{color:var(--teal)}
+
+.wrap{max-width:880px;margin:0 auto;padding:4rem 2.5rem 5rem}
+.sec{margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid var(--border)}
+.sec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.sec-label{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;opacity:0.8}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border-teal)}
+.sec p{color:var(--dim);font-size:0.95rem;line-height:1.85;margin-bottom:0.9rem}
+.sec strong{color:var(--off-white);font-weight:500}
+
+.fans-of{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.fans-label{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:0.5rem;opacity:0.7}
+.fans-names{font-family:var(--cond);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--off-white)}
+
+.crew-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:1.25rem}
+.crew-card{border:1px solid var(--border);padding:0.8rem 1rem}
+.crew-name{font-family:var(--cond);font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--off-white)}
+.crew-role{font-family:var(--mono);font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-top:0.2rem}
+
+.press-item{border-left:2px solid var(--teal);padding:1rem 1.5rem;margin-bottom:1rem;background:var(--bg2)}
+.press-item:last-child{margin-bottom:0}
+.press-source{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;opacity:0.8}
+.press-quote{font-size:0.95rem;color:var(--off-white);line-height:1.75;font-style:italic;margin-bottom:0.6rem}
+.press-link{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
+.press-link:hover{color:var(--teal)}
+
+.asset-label{font-family:var(--mono);font-size:0.54rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);opacity:0.8;margin-bottom:0.75rem}
+.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.photo-grid img{width:100%;display:block;object-fit:cover;filter:grayscale(10%) brightness(0.88)}
+.photo-grid .sq{aspect-ratio:1/1}
+.photo-grid .wide{grid-column:1/-1;aspect-ratio:16/7;object-position:center 20%}
+.photo-caption{font-family:var(--mono);font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-top:0.65rem;opacity:0.6}
+.photo-caption a{color:var(--dim);text-decoration:none}
+
+.video-links{display:flex;flex-direction:column;gap:0.5rem;margin-top:0.75rem}
+.video-link{display:flex;align-items:center;gap:1rem;border:1px solid var(--border);padding:1rem 1.25rem;text-decoration:none;transition:border-color 0.2s,background 0.2s;color:var(--off-white)}
+a.video-link:hover{border-color:var(--teal);background:var(--bg3)}
+.video-link-upcoming{opacity:0.5;cursor:default}
+.video-link-icon{width:36px;height:36px;border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:0.8rem;flex-shrink:0}
+.video-link-icon-dim{border-color:var(--dim);color:var(--dim)}
+.video-link-title{font-family:var(--cond);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--off-white)}
+.video-link-meta{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.1em;color:var(--dim);margin-top:0.2rem}
+.video-link-arrow{font-family:var(--mono);font-size:0.6rem;color:var(--teal);margin-left:auto;opacity:0.8}
+.upcoming-badge{font-family:var(--mono);font-size:0.45rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);border:1px solid var(--border-teal);padding:0.15rem 0.4rem;margin-left:0.5rem;vertical-align:middle;opacity:0.8}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.contact-label{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:0.4rem;opacity:0.8}
+.contact-value{font-family:var(--cond);font-size:1.1rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--off-white)}
+.contact-value a{color:var(--off-white);text-decoration:none;transition:color 0.2s}
+.contact-value a:hover{color:var(--teal)}
+.contact-note{font-family:var(--body);font-size:0.85rem;font-weight:300;text-transform:none;letter-spacing:0.01em;color:var(--dim)}
+
+.link-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:0.5rem}
+.link-item{border:1px solid var(--border);padding:0.75rem 1rem;text-decoration:none;display:block;transition:border-color 0.2s,background 0.2s}
+.link-item:hover{border-color:var(--teal);background:var(--bg3)}
+.link-name{font-family:var(--cond);font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--off-white)}
+.link-arrow{font-family:var(--mono);font-size:0.52rem;color:var(--teal);margin-top:0.3rem;opacity:0.8}
+
+@media(max-width:780px){
+  nav{padding:0 1.25rem}
+  .epk-hero{grid-template-columns:1fr;margin-top:56px}
+  .epk-hero-img-wrap{height:360px;order:-1}
+  .epk-hero-img{object-position:center 15%}
+  .epk-hero-text{padding:2.5rem 1.25rem}
+  .pull-quote-wrap{padding:2.5rem 1.25rem}
+  .wrap{padding:3rem 1.25rem 4rem}
+  .crew-grid,.contact-grid{grid-template-columns:1fr}
+  .photo-grid{grid-template-columns:1fr}
+  .photo-grid .wide{grid-column:auto;aspect-ratio:4/3}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="images/logo.png" alt="Dehorn"></a>
+  <span class="nav-tag">Press Kit</span>
+  <a href="index.html" class="nav-back">&larr; Back to site</a>
+</nav>
+
+<div class="epk-hero">
+  <div class="epk-hero-text">
+    <div class="epk-eyebrow">Electronic Press Kit &mdash; Salt Lake City, UT</div>
+    <div class="epk-name">DEHORN</div>
+    <div class="epk-tagline">Instrumental Anthems for the Apocalypse</div>
+    <div class="epk-meta">
+      <span>Industrial / Progressive Metal / Darksynth</span><br>
+      Salt Lake City, UT &mdash; Braeburn Records
+    </div>
+  </div>
+  <div class="epk-hero-img-wrap">
+    <img src="images/band-wide.png" alt="Dehorn" class="epk-hero-img">
+  </div>
+</div>
+
+<div class="pull-quote-wrap">
+  <div class="pull-quote-inner">
+    <div class="pull-quote">&ldquo;Feels alchemical between cosmic wizardry and deep sludge grunge&hellip; hype music for the apocalypse.&rdquo;</div>
+    <div class="pull-quote-source"><a href="https://www.slugmag.com/music/8-bands-of-notoriety-at-crucialfest/" target="_blank" rel="noopener">SLUG Magazine &mdash; Crucialfest 13, September 2024</a></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="sec">
+    <div class="sec-label">Biography</div>
+    <p>Dehorn is an industrial / progressive metal project created, composed, and engineered by <strong>Chris Clement</strong> &mdash; guitarist of SWARMER, former bassist of GAZA, and former guitarist of Bird Eater, Day of Less, Pilot This Plane Down, and Team Dead.</p>
+    <p>The music is heavy, synth-driven, and cinematic. Crushing guitar riffs locked into pulsating rhythms, layered over samples pulled from internet oddities and public domain cult films. The narratives running through it &mdash; religion, political collapse, societal decay &mdash; aren&rsquo;t subtexts. They&rsquo;re the whole point. Visceral and immersive, Dehorn sounds like it was built for the end of the world: equally at home on a festival stage, a film score, or a video game soundtrack.</p>
+    <p>Signed to <strong>Braeburn Records</strong> (Fort Collins, CO) in 2025. The <em>Devoured</em> EP is available on CD and Cassette. A live recording is forthcoming, with a new full-length in development.</p>
+    <div class="fans-of">
+      <div class="fans-label">For fans of</div>
+      <div class="fans-names">Carpenter Brut &mdash; Ministry &mdash; Author &amp; Punisher &mdash; Genghis Tron &mdash; HEALTH &mdash; Nine Inch Nails</div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">Live</div>
+    <p>Dehorn&rsquo;s live show is a fully synchronized audiovisual production. Precision lighting, timed visuals, and a locked-in performance that puts the audience inside the music.</p>
+    <div class="crew-grid">
+      <div class="crew-card"><div class="crew-name">Chris Clement</div><div class="crew-role">Guitar</div></div>
+      <div class="crew-card"><div class="crew-name">Alana McDonald</div><div class="crew-role">Live Mix, Lights, Synths &amp; Samples</div></div>
+      <div class="crew-card"><div class="crew-name">Paul Wildwise</div><div class="crew-role">Drums</div></div>
+      <div class="crew-card"><div class="crew-name">Jason Weidauer</div><div class="crew-role">Bass</div></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">Press</div>
+    <div class="press-item">
+      <div class="press-source">SLUG Magazine &mdash; September 2024</div>
+      <div class="press-quote">&ldquo;Their recent EP, Devoured, feels alchemical between cosmic wizardry and deep sludge grunge. These perfectly executed notes of nobility outline the deepest stank faces and enact the thrill before a fantasized apocalypse. If zombies did plague the earth, they wouldn&rsquo;t stand a chance with Dehorn for hype music.&rdquo;</div>
+      <a href="https://www.slugmag.com/music/8-bands-of-notoriety-at-crucialfest/" class="press-link" target="_blank" rel="noopener">Read full article &rarr;</a>
+    </div>
+    <div class="press-item">
+      <div class="press-source">Salt Lake City Weekly &mdash; November 2023</div>
+      <div class="press-quote">Featured among Salt Lake City&rsquo;s essential music picks for the week.</div>
+      <a href="https://www.cityweekly.net/music/music-picks-nov-10---16-19150668/" class="press-link" target="_blank" rel="noopener">Read article &rarr;</a>
+    </div>
+    <div class="press-item">
+      <div class="press-source">Braeburn Records &mdash; August 2025</div>
+      <div class="press-quote">&ldquo;We had the pleasure of catching a Dehorn performance in July at Ace&rsquo;s High Saloon, and all of us in attendance were blown away.&rdquo;</div>
+      <a href="https://www.instagram.com/p/DM0HyTDussz/" class="press-link" target="_blank" rel="noopener">View announcement &rarr;</a>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">Press Assets</div>
+
+    <div class="asset-label">Photos</div>
+    <div class="photo-grid">
+      <img src="images/band-wide.png" alt="Dehorn band photo" class="wide">
+      <img src="images/live-session.png" alt="Dehorn live recording session" class="wide">
+      <img src="images/live-tvs.png" alt="Dehorn stage setup" class="wide">
+      <img src="images/live-crucialfest.png" alt="Dehorn live" class="sq" style="object-position:center top">
+      <img src="images/chris-clement.png" alt="Chris Clement" class="sq">
+    </div>
+    <div class="photo-caption">For hi-res versions contact <a href="mailto:utahclem@gmail.com">utahclem@gmail.com</a></div>
+
+    <div class="asset-label" style="margin-top:2.5rem">Video</div>
+    <div class="video-links">
+      <a href="https://www.youtube.com/channel/UCqnkUnRlc1ez4kp0QQSkyuw" class="video-link" target="_blank" rel="noopener">
+        <div class="video-link-icon">&#9654;</div>
+        <div>
+          <div class="video-link-title">YouTube Channel</div>
+          <div class="video-link-meta">Official videos and live footage</div>
+        </div>
+        <div class="video-link-arrow">&rarr;</div>
+      </a>
+      <div class="video-link video-link-upcoming">
+        <div class="video-link-icon video-link-icon-dim">&#9654;</div>
+        <div>
+          <div class="video-link-title">Live Recording <span class="upcoming-badge">Coming Soon</span></div>
+          <div class="video-link-meta">Full live performance &mdash; Braeburn Records release via DVD, VHS, CD &amp; Cassette</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">Contact</div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-label">Booking / Press</div>
+        <div class="contact-value"><a href="mailto:utahclem@gmail.com">utahclem@gmail.com</a></div>
+      </div>
+      <div>
+        <div class="contact-label">Label</div>
+        <div class="contact-value"><a href="https://braeburnrecords.bigcartel.com" target="_blank" rel="noopener">Braeburn Records</a></div>
+      </div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Salt Lake City, UT</div>
+      </div>
+      <div>
+        <div class="contact-label">Available for</div>
+        <div class="contact-note">Live performance &bull; Sync licensing &bull; Collaboration</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">Links</div>
+    <div class="link-grid">
+      <a href="https://dehornmusic.com" class="link-item"><div class="link-name">Website</div><div class="link-arrow">&rarr;</div></a>
+      <a href="https://dehorn.bandcamp.com" class="link-item" target="_blank" rel="noopener"><div class="link-name">Bandcamp</div><div class="link-arrow">&rarr;</div></a>
+      <a href="https://open.spotify.com/artist/70zqYeW9FJVFwFfRbT4hNv" class="link-item" target="_blank" rel="noopener"><div class="link-name">Spotify</div><div class="link-arrow">&rarr;</div></a>
+      <a href="https://music.apple.com/artist/dehorn/1534263667" class="link-item" target="_blank" rel="noopener"><div class="link-name">Apple Music</div><div class="link-arrow">&rarr;</div></a>
+      <a href="https://www.youtube.com/channel/UCqnkUnRlc1ez4kp0QQSkyuw" class="link-item" target="_blank" rel="noopener"><div class="link-name">YouTube</div><div class="link-arrow">&rarr;</div></a>
+      <a href="https://www.instagram.com/dehornmusic" class="link-item" target="_blank" rel="noopener"><div class="link-name">Instagram</div><div class="link-arrow">&rarr;</div></a>
+      <a href="https://bsky.app/profile/dehornmusic.bsky.social" class="link-item" target="_blank" rel="noopener"><div class="link-name">Bluesky</div><div class="link-arrow">&rarr;</div></a>
+      <a href="https://www.bandsintown.com/a/15520373" class="link-item" target="_blank" rel="noopener"><div class="link-name">Bandsintown</div><div class="link-arrow">&rarr;</div></a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
