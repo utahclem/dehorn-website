@@ -18,43 +18,66 @@
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--off-white);font-family:var(--body);font-weight:300;line-height:1.6;min-height:100vh;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(to bottom,transparent,transparent 2px,rgba(0,0,0,0.1) 2px,rgba(0,0,0,0.1) 4px);pointer-events:none;z-index:1000;opacity:0.3}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(to bottom,transparent,transparent 2px,rgba(0,0,0,0.1) 2px,rgba(0,0,0,0.1) 4px);pointer-events:none;z-index:900;opacity:0.3}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,10,10,0.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:56px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,10,10,0.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px}
 .nav-logo{display:flex;align-items:center;text-decoration:none}
-.nav-logo img{height:26px;width:auto}
+.nav-logo img{height:28px;width:auto}
 .nav-links{display:flex;gap:1.75rem;list-style:none;align-items:center}
-.nav-links a{font-family:var(--mono);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
+.nav-links a{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--teal)}
-.nav-epk{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;border:1px solid var(--border-teal);padding:0.3rem 0.75rem;transition:all 0.2s}
+.nav-epk{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);text-decoration:none;border:1px solid var(--border-teal);padding:0.35rem 0.85rem;transition:all 0.2s}
 .nav-epk:hover{border-color:var(--teal);color:var(--teal)}
 .nav-hamburger{display:none;background:none;border:none;cursor:pointer;padding:0.5rem;flex-direction:column;gap:5px}
-.nav-hamburger span{display:block;width:22px;height:1px;background:var(--dim);transition:all 0.2s}
-.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(8,10,10,0.97);border-bottom:1px solid var(--border);z-index:99;padding:1.5rem 2rem;flex-direction:column;gap:1.25rem}
+.nav-hamburger span{display:block;width:22px;height:1px;background:var(--dim)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(8,10,10,0.98);border-bottom:1px solid var(--border);z-index:99;padding:1.5rem 2rem;flex-direction:column;gap:1.5rem}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
+.mobile-menu a{font-family:var(--mono);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
 .mobile-menu a:hover{color:var(--teal)}
+
+/* FLOATING SOCIAL BAR */
+.social-float{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:0}
+.social-float a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:rgba(8,10,10,0.85);border:1px solid var(--border);border-right:none;color:var(--dim);text-decoration:none;font-size:0.75rem;transition:all 0.2s;font-family:var(--mono)}
+.social-float a:hover{background:var(--bg3);color:var(--teal);border-color:var(--border-teal)}
+.social-float a svg{width:15px;height:15px;fill:currentColor}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 2.5rem 5rem;position:relative;border-bottom:1px solid var(--border);overflow:hidden}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center center;filter:brightness(0.75)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,10,10,0.95) 0%,rgba(8,10,10,0.3) 50%,rgba(8,10,10,0.05) 100%)}
-.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 60%,rgba(31,208,196,0.04) 0%,transparent 70%)}
-.hero-tag{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.22em;color:var(--teal);text-transform:uppercase;margin-bottom:1.25rem;position:relative;z-index:2;opacity:0.8}
+.hero-scanlines{position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent,transparent 2px,rgba(0,0,0,0.08) 2px,rgba(0,0,0,0.08) 4px);z-index:1;opacity:0.4}
+.hero-tag{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.2em;color:var(--teal);text-transform:uppercase;margin-bottom:1.25rem;position:relative;z-index:2;opacity:0.85}
 .hero-logo{position:relative;z-index:2;margin-bottom:1.25rem}
-.hero-logo img{height:clamp(55px,11vw,120px);width:auto}
-.hero-subtitle{font-family:var(--cond);font-size:clamp(0.85rem,1.8vw,1.3rem);font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim);margin-bottom:3rem;position:relative;z-index:2}
+.hero-logo img{height:clamp(50px,9vw,100px);width:auto}
+.hero-subtitle{font-family:var(--cond);font-size:clamp(0.95rem,1.8vw,1.4rem);font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--dim);margin-bottom:3rem;position:relative;z-index:2}
 .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;position:relative;z-index:2}
-.btn{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;padding:0.7rem 1.6rem;border:1px solid;transition:all 0.2s;cursor:pointer;display:inline-block}
+.btn{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:0.8rem 1.8rem;border:1px solid;transition:all 0.2s;cursor:pointer;display:inline-block}
 .btn-primary{background:var(--teal);border-color:var(--teal);color:#080a0a}
 .btn-primary:hover{background:transparent;color:var(--teal)}
 .btn-ghost{background:transparent;border-color:var(--border-teal);color:var(--off-white)}
 .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
 
+/* LATEST RELEASE */
+#latest{background:var(--bg2);border-bottom:1px solid var(--border)}
+.latest-inner{display:grid;grid-template-columns:320px 1fr;gap:0;min-height:420px}
+.latest-art-wrap{position:relative;overflow:hidden}
+.latest-art{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.9)}
+.latest-art-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 70%,var(--bg2) 100%)}
+.latest-content{padding:4rem 3.5rem;display:flex;flex-direction:column;justify-content:center}
+.latest-eyebrow{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;opacity:0.85}
+.latest-title{font-family:var(--display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;line-height:0.9;letter-spacing:0.04em;color:var(--off-white);margin-bottom:0.5rem}
+.latest-meta{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:1.5rem}
+.latest-desc{font-size:0.95rem;color:var(--dim);line-height:1.8;margin-bottom:2rem;max-width:480px}
+.latest-links{display:flex;flex-wrap:wrap;gap:0.5rem}
+.latest-link{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:0.6rem 1.25rem;border:1px solid var(--border-teal);color:var(--off-white);transition:all 0.2s}
+.latest-link:hover{border-color:var(--teal);color:var(--teal)}
+.latest-link.primary{background:var(--teal);border-color:var(--teal);color:#080a0a}
+.latest-link.primary:hover{background:transparent;color:var(--teal)}
+
 /* SECTIONS */
 section{padding:5.5rem 2.5rem;border-bottom:1px solid var(--border);position:relative}
-.section-label{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal);margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;opacity:0.8}
+.section-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);margin-bottom:2.5rem;display:flex;align-items:center;gap:1rem;opacity:0.85}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border-teal);max-width:160px}
 .section-title{font-family:var(--display);font-size:clamp(2.5rem,5vw,5rem);line-height:0.9;font-weight:700;letter-spacing:0.04em;color:var(--off-white);margin-bottom:2.5rem}
 
@@ -69,15 +92,15 @@ section{padding:5.5rem 2.5rem;border-bottom:1px solid var(--border);position:rel
 .news-img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(20%) brightness(0.8);transition:filter 0.3s}
 .news-card:hover .news-img{filter:grayscale(0%) brightness(0.9)}
 .news-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}
-.news-source{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;opacity:0.8}
-.news-title{font-family:var(--display);font-size:1.3rem;font-weight:600;color:var(--off-white);line-height:1.2;margin-bottom:0.6rem}
-.news-desc{font-size:0.875rem;color:var(--dim);line-height:1.65;margin-bottom:1rem;font-style:italic}
-.news-date{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.15em;color:var(--dim);opacity:0.5;margin-top:auto}
-.news-arrow{font-family:var(--mono);font-size:0.6rem;color:var(--teal);margin-top:0.75rem;opacity:0.8}
+.news-source{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;opacity:0.85}
+.news-title{font-family:var(--display);font-size:1.4rem;font-weight:600;color:var(--off-white);line-height:1.2;margin-bottom:0.6rem}
+.news-desc{font-size:0.9rem;color:var(--dim);line-height:1.65;margin-bottom:1rem;font-style:italic}
+.news-date{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;color:var(--dim);opacity:0.6;margin-top:auto}
+.news-arrow{font-family:var(--mono);font-size:0.68rem;color:var(--teal);margin-top:0.75rem;opacity:0.85}
 
 /* MUSIC */
 #music{background:var(--bg)}
-.releases-note{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:2rem;opacity:0.7}
+.releases-note{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-bottom:2rem;opacity:0.8}
 .releases-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;background:transparent}
 .release-card{background:var(--bg2);cursor:pointer;position:relative;overflow:hidden;transition:background 0.2s}
 .release-card:hover{background:var(--bg3)}
@@ -88,11 +111,11 @@ section{padding:5.5rem 2.5rem;border-bottom:1px solid var(--border);position:rel
 .release-card:hover .release-art-overlay{opacity:1}
 .release-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s}
 .release-card:hover .release-play{opacity:1}
-.release-play-icon{width:40px;height:40px;border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:0.9rem}
-.release-info{padding:0.9rem 1rem}
-.release-title{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--off-white);margin-bottom:0.2rem;line-height:1.2}
-.release-meta{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim)}
-.release-tag{display:inline-block;font-family:var(--mono);font-size:0.48rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);border:1px solid var(--border-teal);padding:0.12rem 0.4rem;margin-top:0.35rem;opacity:0.8}
+.release-play-icon{width:44px;height:44px;border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1rem}
+.release-info{padding:1rem}
+.release-title{font-family:var(--display);font-size:1.05rem;font-weight:600;color:var(--off-white);margin-bottom:0.2rem;line-height:1.2}
+.release-meta{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim)}
+.release-tag{display:inline-block;font-family:var(--mono);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);border:1px solid var(--border-teal);padding:0.15rem 0.45rem;margin-top:0.4rem;opacity:0.85}
 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:200;align-items:center;justify-content:center;padding:2rem}
@@ -101,18 +124,18 @@ section{padding:5.5rem 2.5rem;border-bottom:1px solid var(--border);position:rel
 .modal-top{display:grid;grid-template-columns:160px 1fr}
 .modal-art{width:160px;height:160px;object-fit:cover;display:block}
 .modal-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
-.modal-title{font-family:var(--display);font-size:1.9rem;font-weight:700;letter-spacing:0.04em;color:var(--off-white);line-height:1}
-.modal-sub{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-top:0.4rem;opacity:0.8}
-.modal-close{position:absolute;top:0.5rem;right:0.75rem;background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:0.65rem;padding:0.5rem;cursor:pointer;letter-spacing:0.1em;transition:color 0.2s}
+.modal-title{font-family:var(--display);font-size:2rem;font-weight:700;letter-spacing:0.04em;color:var(--off-white);line-height:1}
+.modal-sub{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-top:0.4rem;opacity:0.85}
+.modal-close{position:absolute;top:0.5rem;right:0.75rem;background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:0.72rem;padding:0.5rem;cursor:pointer;letter-spacing:0.1em;transition:color 0.2s}
 .modal-close:hover{color:var(--teal)}
 .modal-links{padding:1.25rem 1.5rem}
-.modal-links-title{font-family:var(--mono);font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;opacity:0.8}
-.platform-link{display:flex;align-items:center;justify-content:space-between;padding:0.65rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:all 0.2s}
+.modal-links-title{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;opacity:0.85}
+.platform-link{display:flex;align-items:center;justify-content:space-between;padding:0.7rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:all 0.2s}
 .platform-link:last-child{border-bottom:none}
-.platform-name{font-family:var(--cond);font-size:0.95rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--off-white);transition:color 0.2s}
+.platform-name{font-family:var(--cond);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--off-white);transition:color 0.2s}
 .platform-link:hover .platform-name{color:var(--teal)}
-.platform-type{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim)}
-.platform-arrow{font-family:var(--mono);font-size:0.6rem;color:var(--teal);opacity:0.7}
+.platform-type{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dim)}
+.platform-arrow{font-family:var(--mono);font-size:0.68rem;color:var(--teal);opacity:0.8}
 
 /* MERCH */
 #merch{background:var(--bg2)}
@@ -123,15 +146,33 @@ section{padding:5.5rem 2.5rem;border-bottom:1px solid var(--border);position:rel
 
 /* VIDEOS */
 #videos{background:var(--bg)}
-.video-note{font-size:0.95rem;color:var(--dim);margin-bottom:2rem;line-height:1.75}
-.video-note strong{color:var(--off-white);font-weight:500}
+.video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--border);margin-bottom:2rem}
+.video-card{background:var(--bg2);text-decoration:none;display:flex;flex-direction:column;transition:background 0.2s;overflow:hidden}
+.video-card:hover{background:var(--bg3)}
+.video-thumb-wrap{width:100%;aspect-ratio:16/9;overflow:hidden;position:relative;border-bottom:1px solid var(--border)}
+.video-thumb{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.8);transition:filter 0.3s}
+.video-card:hover .video-thumb{filter:brightness(1)}
+.video-play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.video-play-btn{width:52px;height:52px;border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:1.1rem;background:rgba(8,10,10,0.5);transition:all 0.2s}
+.video-card:hover .video-play-btn{background:var(--teal);color:#080a0a}
+.video-info{padding:1.25rem 1.5rem}
+.video-title{font-family:var(--display);font-size:1.2rem;font-weight:600;color:var(--off-white);margin-bottom:0.3rem}
+.video-meta{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim)}
+.video-placeholder{background:var(--bg2);border:1px solid var(--border);padding:2rem;display:flex;align-items:center;gap:1.5rem;opacity:0.5}
+.video-placeholder-icon{width:44px;height:44px;border:1px solid var(--dim);display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:1rem;flex-shrink:0}
+.video-placeholder-text .video-title{color:var(--dim)}
+.video-upcoming{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);border:1px solid var(--border-teal);padding:0.2rem 0.5rem;display:inline-block;margin-top:0.4rem;opacity:0.8}
+.video-channel-link{display:inline-block}
 
 /* TOUR */
 #tour{background:var(--bg2)}
-.tour-empty{border:1px solid var(--border);padding:4rem 2rem;text-align:center}
-.tour-empty-label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dim);margin-bottom:0.75rem;opacity:0.7}
-.tour-empty-text{font-family:var(--display);font-size:1.5rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal-dim)}
-.tour-social{margin-top:1.25rem;font-family:var(--mono);font-size:0.55rem;letter-spacing:0.15em;color:var(--dim);opacity:0.6}
+.tour-compact{border:1px solid var(--border);padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.tour-compact-text{}
+.tour-compact-label{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;opacity:0.85}
+.tour-compact-msg{font-family:var(--display);font-size:1.8rem;font-weight:600;letter-spacing:0.06em;color:var(--off-white)}
+.tour-compact-follow{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.1em;color:var(--dim);margin-top:0.5rem}
+.tour-compact-follow a{color:var(--teal);text-decoration:none;opacity:0.85}
+.tour-compact-follow a:hover{opacity:1}
 
 /* INFO */
 #info{background:var(--bg)}
@@ -139,33 +180,43 @@ section{padding:5.5rem 2.5rem;border-bottom:1px solid var(--border);position:rel
 .info-sidebar{position:sticky;top:80px}
 .info-avatar{width:100%;aspect-ratio:1/1;object-fit:cover;filter:grayscale(10%);display:block;margin-bottom:1.5rem;border:1px solid var(--border-teal)}
 .info-sidebar-name{font-family:var(--display);font-size:3.5rem;font-weight:700;line-height:0.9;color:var(--teal);margin-bottom:1.25rem;letter-spacing:0.04em}
-.info-tag{display:inline-block;font-family:var(--mono);font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);border:1px solid var(--border-teal);padding:0.22rem 0.6rem;margin:0.18rem;opacity:0.8}
-.info-body h3{font-family:var(--mono);font-size:0.58rem;font-weight:400;letter-spacing:0.3em;text-transform:uppercase;color:var(--teal);margin-top:2.5rem;margin-bottom:0.75rem;opacity:0.8}
+.info-body h3{font-family:var(--mono);font-size:0.72rem;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);margin-top:2.5rem;margin-bottom:0.75rem;opacity:0.85}
 .info-body h3:first-child{margin-top:0}
 .info-body p{color:var(--dim);font-size:0.95rem;line-height:1.85;margin-bottom:0.9rem}
 .info-body strong{color:var(--off-white);font-weight:500}
 .live-crew{margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
-.crew-card{border:1px solid var(--border);padding:0.75rem 1rem}
-.crew-name{font-family:var(--cond);font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--off-white)}
-.crew-role{font-family:var(--mono);font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-top:0.2rem}
+.crew-card{border:1px solid var(--border);padding:0.85rem 1rem}
+.crew-name{font-family:var(--cond);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--off-white)}
+.crew-role{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-top:0.25rem}
 .live-photo-wrap{margin-top:2rem}
 .live-photo{width:100%;display:block;filter:brightness(0.82) saturate(1.1)}
-.live-photo-caption{font-family:var(--mono);font-size:0.52rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim);margin-top:0.65rem;opacity:0.6}
+.live-photo-caption{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-top:0.65rem;opacity:0.7}
+
+/* BANDCAMP CTA */
+.bandcamp-cta{background:var(--bg2);border-bottom:1px solid var(--border);padding:3rem 2.5rem;text-align:center}
+.bandcamp-cta-text{font-family:var(--display);font-size:1.6rem;font-weight:600;color:var(--off-white);margin-bottom:0.75rem;letter-spacing:0.04em}
+.bandcamp-cta-sub{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);margin-bottom:1.5rem;opacity:0.8}
 
 /* FOOTER */
-footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
-.footer-logo img{height:20px;width:auto;opacity:0.4}
-.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
-.footer-links a{font-family:var(--mono);font-size:0.56rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
-.footer-links a:hover{color:var(--teal)}
-.footer-copy{width:100%;font-family:var(--mono);font-size:0.5rem;letter-spacing:0.1em;color:var(--dim);opacity:0.35}
+footer{padding:3rem 2.5rem;border-top:1px solid var(--border-teal);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;background:var(--bg2)}
+.footer-logo img{height:26px;width:auto;opacity:0.7}
+.footer-links{display:flex;gap:1.75rem;flex-wrap:wrap}
+.footer-links a{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--off-white);text-decoration:none;transition:color 0.2s;opacity:0.8}
+.footer-links a:hover{color:var(--teal);opacity:1}
+.footer-copy{width:100%;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--dim);opacity:0.6}
 
 @media(max-width:900px){
-  nav{padding:0 1.25rem}
+  nav{padding:0 1.25rem;height:56px}
   .nav-links{display:none}
   .nav-hamburger{display:flex}
+  .social-float{display:none}
   section{padding:3.5rem 1.25rem}
   .hero{padding:0 1.25rem 4rem}
+  .latest-inner{grid-template-columns:1fr;min-height:auto}
+  .latest-art-wrap{height:280px}
+  .latest-art{height:100%}
+  .latest-art-overlay{background:linear-gradient(to top,var(--bg2) 0%,transparent 60%)}
+  .latest-content{padding:2rem 1.25rem}
   .info-grid{grid-template-columns:1fr;gap:2rem}
   .info-sidebar{position:static}
   .merch-inner{grid-template-columns:1fr;gap:2rem}
@@ -173,6 +224,8 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
   .modal-art{width:100%;height:200px}
   .live-crew{grid-template-columns:1fr}
   footer{padding:2rem 1.25rem;flex-direction:column;align-items:flex-start}
+  .tour-compact{flex-direction:column;align-items:flex-start}
+  .bandcamp-cta{padding:2.5rem 1.25rem}
 }
 </style>
 </head>
@@ -182,7 +235,7 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
   <a href="#" class="nav-logo"><img src="images/logo.png" alt="Dehorn"></a>
   <ul class="nav-links">
     <li><a href="#news">News</a></li>
-    <li><a href="#music">Music</a></li>
+    <li><a href="#latest">Music</a></li>
     <li><a href="#merch">Merch</a></li>
     <li><a href="#videos">Videos</a></li>
     <li><a href="#tour">Tour</a></li>
@@ -196,7 +249,7 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
 
 <div class="mobile-menu" id="mobile-menu">
   <a href="#news" onclick="closeMenu()">News</a>
-  <a href="#music" onclick="closeMenu()">Music</a>
+  <a href="#latest" onclick="closeMenu()">Music</a>
   <a href="#merch" onclick="closeMenu()">Merch</a>
   <a href="#videos" onclick="closeMenu()">Videos</a>
   <a href="#tour" onclick="closeMenu()">Tour</a>
@@ -204,26 +257,66 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
   <a href="epk.html">EPK</a>
 </div>
 
+<!-- FLOATING SOCIAL BAR -->
+<div class="social-float">
+  <a href="https://www.instagram.com/dehornmusic" target="_blank" rel="noopener" title="Instagram">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+  </a>
+  <a href="https://bsky.app/profile/dehornmusic.bsky.social" target="_blank" rel="noopener" title="Bluesky">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.204-.659-.299-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>
+  </a>
+  <a href="https://dehorn.bandcamp.com" target="_blank" rel="noopener" title="Bandcamp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 18.75l7.437-13.5H24l-7.438 13.5z"/></svg>
+  </a>
+  <a href="https://open.spotify.com/artist/70zqYeW9FJVFwFfRbT4hNv" target="_blank" rel="noopener" title="Spotify">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+  </a>
+  <a href="https://www.youtube.com/channel/UCqnkUnRlc1ez4kp0QQSkyuw" target="_blank" rel="noopener" title="YouTube">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+  </a>
+</div>
+
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-bg" style="background-image:url('images/hero.jpg')"></div>
   <div class="hero-overlay"></div>
-  <div class="hero-glow"></div>
+  <div class="hero-scanlines"></div>
   <div class="hero-tag">Salt Lake City, Utah &mdash; Industrial / Progressive Metal</div>
   <div class="hero-logo"><img src="images/logo.png" alt="Dehorn"></div>
   <p class="hero-subtitle">Instrumental Anthems for the Apocalypse</p>
   <div class="hero-cta">
-    <a href="#music" class="btn btn-primary">Listen Now</a>
+    <a href="#latest" class="btn btn-primary">Listen Now</a>
     <a href="#info" class="btn btn-ghost">Read More</a>
   </div>
 </section>
+
+<!-- LATEST RELEASE -->
+<div id="latest">
+  <div class="latest-inner">
+    <div class="latest-art-wrap">
+      <img src="images/albums/devoured.png" alt="Devoured EP" class="latest-art">
+      <div class="latest-art-overlay"></div>
+    </div>
+    <div class="latest-content">
+      <div class="latest-eyebrow">Latest Release</div>
+      <div class="latest-title">Devoured</div>
+      <div class="latest-meta">EP &mdash; 2023 &mdash; Braeburn Records</div>
+      <div class="latest-desc">Five tracks of industrial-driven metal built for the end of everything. Available on CD and Cassette via Braeburn Records.</div>
+      <div class="latest-links">
+        <a href="https://dehorn.bandcamp.com/album/devoured" class="latest-link primary" target="_blank" rel="noopener">Bandcamp</a>
+        <a href="https://open.spotify.com/artist/70zqYeW9FJVFwFfRbT4hNv" class="latest-link" target="_blank" rel="noopener">Spotify</a>
+        <a href="https://music.apple.com/artist/dehorn/1534263667" class="latest-link" target="_blank" rel="noopener">Apple Music</a>
+        <a href="https://www.youtube.com/channel/UCqnkUnRlc1ez4kp0QQSkyuw" class="latest-link" target="_blank" rel="noopener">YouTube Music</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- NEWS -->
 <section id="news">
   <div class="section-label">// News &amp; Press</div>
   <h2 class="section-title">Latest</h2>
   <div class="news-grid">
-
     <a href="https://www.instagram.com/p/DM0HyTDussz/" class="news-card" target="_blank" rel="noopener">
       <div class="news-img-wrap">
         <img src="images/band-wide.png" alt="Dehorn signs to Braeburn Records" class="news-img">
@@ -236,7 +329,6 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
         <div class="news-arrow">View on Instagram &rarr;</div>
       </div>
     </a>
-
     <a href="https://www.slugmag.com/music/8-bands-of-notoriety-at-crucialfest/" class="news-card" target="_blank" rel="noopener">
       <div class="news-body" style="padding-top:2.5rem">
         <div class="news-source">SLUG Magazine &mdash; September 2024</div>
@@ -246,7 +338,6 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
         <div class="news-arrow">Read Full Article &rarr;</div>
       </div>
     </a>
-
     <a href="https://www.cityweekly.net/music/music-picks-nov-10---16-19150668/" class="news-card" target="_blank" rel="noopener">
       <div class="news-body" style="padding-top:2.5rem">
         <div class="news-source">Salt Lake City Weekly &mdash; November 2023</div>
@@ -256,7 +347,6 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
         <div class="news-arrow">Read Article &rarr;</div>
       </div>
     </a>
-
   </div>
 </section>
 
@@ -264,7 +354,7 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
 <section id="music">
   <div class="section-label">// Music</div>
   <h2 class="section-title">Discography</h2>
-  <p class="releases-note">Click any release to find it on your platform of choice</p>
+  <p class="releases-note">Click any release to stream or buy</p>
   <div class="releases-grid" id="releases-grid"></div>
 </section>
 
@@ -274,7 +364,7 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
   <h2 class="section-title">Merchandise</h2>
   <div class="merch-inner">
     <div class="merch-text">
-      <p>Physical releases, apparel, and more &mdash; available on Bandcamp. Every purchase goes straight to the artist.</p>
+      <p>Physical releases and more available on Bandcamp. Every purchase goes straight to the artist.</p>
       <p>The <em>Devoured</em> EP is available on CD and Cassette through Braeburn Records.</p>
       <a href="https://dehorn.bandcamp.com/merch" class="btn btn-primary" target="_blank" rel="noopener">Shop on Bandcamp</a>
     </div>
@@ -288,36 +378,43 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
 <section id="videos">
   <div class="section-label">// Videos</div>
   <h2 class="section-title">Visual</h2>
-  <p class="video-note">All videos on YouTube &mdash; plus <strong>a live recording coming soon</strong> via Braeburn Records.</p>
-  <a href="https://www.youtube.com/channel/UCqnkUnRlc1ez4kp0QQSkyuw" class="btn btn-ghost" target="_blank" rel="noopener">Watch on YouTube &rarr;</a>
+  <div class="video-grid">
+    <a href="https://youtu.be/CS7diX1Snpg" class="video-card" target="_blank" rel="noopener">
+      <div class="video-thumb-wrap">
+        <img src="https://i.ytimg.com/vi/CS7diX1Snpg/hqdefault.jpg" alt="The Cellar" class="video-thumb">
+        <div class="video-play-overlay">
+          <div class="video-play-btn">&#9654;</div>
+        </div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">The Cellar</div>
+        <div class="video-meta">YouTube &mdash; Official Video</div>
+      </div>
+    </a>
+    <div class="video-placeholder">
+      <div class="video-placeholder-icon">&#9654;</div>
+      <div class="video-placeholder-text">
+        <div class="video-title">Live Recording</div>
+        <div class="video-meta">Braeburn Records</div>
+        <span class="video-upcoming">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+  <a href="https://www.youtube.com/channel/UCqnkUnRlc1ez4kp0QQSkyuw" class="btn btn-ghost video-channel-link" target="_blank" rel="noopener">All Videos on YouTube &rarr;</a>
 </section>
 
 <!-- TOUR -->
 <section id="tour">
   <div class="section-label">// Tour</div>
   <h2 class="section-title">Live</h2>
-  <div class="tour-empty">
-    <div class="tour-empty-label">Upcoming Shows</div>
-    <div class="tour-empty-text">No dates announced &mdash; check back soon</div>
-    <div class="tour-social">Follow @dehornmusic for announcements</div>
+  <div class="tour-compact">
+    <div class="tour-compact-text">
+      <div class="tour-compact-label">Upcoming Shows</div>
+      <div class="tour-compact-msg">Dates Coming Soon</div>
+      <div class="tour-compact-follow">Follow <a href="https://www.instagram.com/dehornmusic" target="_blank" rel="noopener">@dehornmusic</a> for announcements</div>
+    </div>
+    <a href="https://www.bandsintown.com/a/15520373" class="btn btn-ghost" target="_blank" rel="noopener">Track on Bandsintown</a>
   </div>
-  <!--
-  TO ACTIVATE BANDSINTOWN: remove the div above and uncomment below:
-  <a class="bit-widget-initializer"
-    data-artist-name="Dehorn"
-    data-display-local-dates="false"
-    data-display-past-dates="false"
-    data-auto-style="false"
-    data-button-label-capitalization="capitalize"
-    data-header-font-color="#c8c2b8"
-    data-separator-color="rgba(31,208,196,0.1)"
-    data-text-color="#a09890"
-    data-background-color="transparent"
-    data-display-limit="10"
-    data-link-color="#1fd0c4">
-  </a>
-  <script src="https://widget.bandsintown.com/main.min.js" charset="utf-8"></script>
-  -->
 </section>
 
 <!-- INFO -->
@@ -327,14 +424,6 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
     <div class="info-sidebar">
       <img src="images/chris-clement.png" alt="Chris Clement — Dehorn" class="info-avatar">
       <div class="info-sidebar-name">DEHORN</div>
-      <div>
-        <span class="info-tag">Industrial</span>
-        <span class="info-tag">Progressive Metal</span>
-        <span class="info-tag">Darksynth</span>
-        <span class="info-tag">Cinematic</span>
-        <span class="info-tag">Salt Lake City</span>
-        <span class="info-tag">Braeburn Records</span>
-      </div>
     </div>
     <div class="info-body">
       <h3>About</h3>
@@ -357,6 +446,13 @@ footer{padding:3rem 2.5rem;display:flex;align-items:center;justify-content:space
     </div>
   </div>
 </section>
+
+<!-- BANDCAMP CTA -->
+<div class="bandcamp-cta">
+  <div class="bandcamp-cta-text">Stay Connected</div>
+  <div class="bandcamp-cta-sub">Follow on Bandcamp to get notified of new releases</div>
+  <a href="https://dehorn.bandcamp.com" class="btn btn-primary" target="_blank" rel="noopener">Follow on Bandcamp</a>
+</div>
 
 <footer>
   <div class="footer-logo"><img src="images/logo.png" alt="Dehorn"></div>
@@ -498,7 +594,7 @@ function openModal(i){
   document.getElementById('modal-art').src=r.art;
   document.getElementById('modal-art').alt=r.title;
   document.getElementById('modal-title').textContent=r.title;
-  document.getElementById('modal-sub').textContent=r.year+' \u2014 '+r.type+(r.label?' \u2014 '+r.label:'');
+  document.getElementById('modal-sub').textContent=r.year+' — '+r.type+(r.label?' — '+r.label:'');
   document.getElementById('modal-links-list').innerHTML=r.links.map(l=>`
     <a href="${l.url}" class="platform-link" target="_blank" rel="noopener">
       <div><div class="platform-name">${l.name}</div><div class="platform-type">${l.type}</div></div>
