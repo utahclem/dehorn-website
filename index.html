@@ -60,10 +60,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,10,10,0.93
 
 /* LATEST RELEASE */
 #latest{background:var(--bg2);border-bottom:1px solid var(--border)}
-.latest-inner{display:grid;grid-template-columns:320px 1fr;gap:0;min-height:420px}
-.latest-art-wrap{position:relative;overflow:hidden}
-.latest-art{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.9)}
-.latest-art-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 70%,var(--bg2) 100%)}
+.latest-inner{display:grid;grid-template-columns:auto 1fr;gap:0;align-items:center}
+.latest-art-wrap{position:relative;width:360px;flex-shrink:0}
+.latest-art{width:100%;height:auto;display:block;filter:brightness(0.95)}
+.latest-art-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--bg2) 100%)}
 .latest-content{padding:4rem 3.5rem;display:flex;flex-direction:column;justify-content:center}
 .latest-eyebrow{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;opacity:0.85}
 .latest-title{font-family:var(--display);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;line-height:0.9;letter-spacing:0.04em;color:var(--off-white);margin-bottom:0.5rem}
@@ -126,7 +126,7 @@ section{padding:5.5rem 2.5rem;border-bottom:1px solid var(--border);position:rel
 .modal-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
 .modal-title{font-family:var(--display);font-size:2rem;font-weight:700;letter-spacing:0.04em;color:var(--off-white);line-height:1}
 .modal-sub{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-top:0.4rem;opacity:0.85}
-.modal-close{position:absolute;top:0.5rem;right:0.75rem;background:none;border:none;color:var(--dim);font-family:var(--mono);font-size:0.72rem;padding:0.5rem;cursor:pointer;letter-spacing:0.1em;transition:color 0.2s}
+.modal-close{position:absolute;top:0;right:0;background:rgba(8,10,10,0.9);border:none;border-bottom:1px solid var(--border-teal);border-left:1px solid var(--border-teal);color:var(--teal);font-family:var(--mono);font-size:0.75rem;padding:0.75rem 1.25rem;cursor:pointer;letter-spacing:0.1em;transition:all 0.2s;z-index:10}
 .modal-close:hover{color:var(--teal)}
 .modal-links{padding:1.25rem 1.5rem}
 .modal-links-title{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;opacity:0.85}
@@ -206,16 +206,16 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border-teal);display:flex;
 .footer-copy{width:100%;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.1em;color:var(--dim);opacity:0.6}
 
 @media(max-width:900px){
+  .releases-grid{grid-template-columns:repeat(2,1fr);gap:6px}
   nav{padding:0 1.25rem;height:56px}
   .nav-links{display:none}
   .nav-hamburger{display:flex}
   .social-float{display:none}
   section{padding:3.5rem 1.25rem}
   .hero{padding:0 1.25rem 4rem}
-  .latest-inner{grid-template-columns:1fr;min-height:auto}
-  .latest-art-wrap{height:280px}
-  .latest-art{height:100%}
-  .latest-art-overlay{background:linear-gradient(to top,var(--bg2) 0%,transparent 60%)}
+  .latest-inner{grid-template-columns:1fr}
+  .latest-art-wrap{width:100%;max-width:360px;margin:0 auto}
+  .latest-art-overlay{background:linear-gradient(to bottom,transparent 60%,var(--bg2) 100%)}
   .latest-content{padding:2rem 1.25rem}
   .info-grid{grid-template-columns:1fr;gap:2rem}
   .info-sidebar{position:static}
@@ -472,7 +472,7 @@ footer{padding:3rem 2.5rem;border-top:1px solid var(--border-teal);display:flex;
 <!-- MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&#x2715; close</button>
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open');document.body.style.overflow=''">&#x2715; Close</button>
     <div class="modal-top">
       <img id="modal-art" src="" alt="" class="modal-art">
       <div>
@@ -605,7 +605,7 @@ function openModal(i){
 }
 
 function closeModal(e){
-  if(!e||e.target===document.getElementById('modal')||e.currentTarget===document.querySelector('.modal-close')){
+  if(!e||e.target===document.getElementById('modal')){
     document.getElementById('modal').classList.remove('open');
     document.body.style.overflow='';
   }
